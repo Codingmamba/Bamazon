@@ -18,15 +18,42 @@ var connection = mysql.createConnection({
 
 connection.connect( function(err) {
 	if (err) throw err;
-	console.log("connected as id " + connection.threadId);
+	//console.log("connected as id " + connection.threadId);
     afterConnection();
     connection.end();
 });
- 
+
 
 function afterConnection() {
     connection.query("SELECT * FROM products", function(err, res) {
       if (err) throw err;
-      console.log(res);
+      
+      for (var i = 0; i < res.length; i++) {
+          console.log("iD:" + res[i].item_id + " | " + "Product: " + res[i].product_name + " --- Price: " + res[i].price);
+          
+      }
+
+      console.log("\n");
+
+      inquirer.prompt([
+        // Here we create a basic text prompt.
+        {
+          type: "input",
+          message: 'Which product "iD" would you like to buy?',
+          name: "buy"
+        },
+        {
+          type: "input",
+          message: "How many units would you like to buy?",
+          name: "quantity"
+        }
+      ])
+      .then(function(inquirerResponse) {
+      
+       console.log(inquirerResponse.buy);
+       console.log(inquirerResponse.quantity);
+          
+      });
+
   });
 }
