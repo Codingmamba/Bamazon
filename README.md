@@ -6,4 +6,4 @@ In this activity, you'll be creating an Amazon-like storefront with the MySQL sk
 
 Make sure you save and require the MySQL and Inquirer npm packages in your homework files--your app will need them for data input and storage.
 
-![Image of products](https://codingmamba.github.com/screenshots/displayingProducts.JPG)
+![Image of products](https://github.com/Codingmamba/Bamazon/blob/master/screenshots/displayingProducts.JPG)
