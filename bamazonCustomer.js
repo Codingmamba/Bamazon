@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
     //my username
     user: "root",
     password: passW,
-    database: "bamazon" 
+    database: "bamazon"
 
 });
 
@@ -26,14 +26,21 @@ connection.connect( function(err) {
 
 function afterConnection() {
     connection.query("SELECT * FROM products", function(err, res) {
-      if (err) throw err;
+      //if (err) throw err;
       
       for (var i = 0; i < res.length; i++) {
-          console.log("iD:" + res[i].item_id + " | " + "Product: " + res[i].product_name + " --- Price: " + res[i].price);
+
+        var id = res[i].item_id;
+        var title = res[i].product_name;
+        var sell = res[i].price;
+        var avail = res[i].stock_quantity;
+
+          console.log("iD:" + id + " | " + "Product: " + title + " --- Price: " + sell);
           
       }
 
       console.log("\n");
+
 
       inquirer.prompt([
         // Here we create a basic text prompt.
@@ -50,8 +57,28 @@ function afterConnection() {
       ])
       .then(function(inquirerResponse) {
       
-       console.log(inquirerResponse.buy);
-       console.log(inquirerResponse.quantity);
+        var connect = connection.query("SELECT item_id FROM product", function(err, res) {
+         // if (err) throw err;
+          var total = inquirerResponse.buy;
+    
+
+            if (total === '1') {
+                console.log(bamazon.products.item_id);
+            }
+            
+
+
+        //    var inventory = inquirerResponse.quantity;  
+
+
+        //     if (inventory > avail) {
+        //         console.log('Insufficient stock. There are only '+ avail + ' item(s) left.');
+        //     }
+        //     else {
+        //         console.log('Your ' + title + ' has been placed for ' + "$" + sell)
+        //     }
+
+        });
           
       });
 
