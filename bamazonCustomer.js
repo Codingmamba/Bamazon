@@ -60,23 +60,15 @@ function afterConnection() {
         var connect = connection.query("SELECT item_id FROM product", function(err, res) {
          // if (err) throw err;
           var total = inquirerResponse.buy;
-    
+          var inventory = inquirerResponse.quantity;  
 
-            if (total === '1') {
-                console.log(bamazon.products.item_id);
+
+            if (inventory > avail) {
+                console.log('Insufficient stock. There are only '+ avail + ' item(s) left.');
             }
-            
-
-
-        //    var inventory = inquirerResponse.quantity;  
-
-
-        //     if (inventory > avail) {
-        //         console.log('Insufficient stock. There are only '+ avail + ' item(s) left.');
-        //     }
-        //     else {
-        //         console.log('Your ' + title + ' has been placed for ' + "$" + sell)
-        //     }
+            else {
+                console.log('Your ' + title + ' has been placed for ' + "$" + sell)
+            }
 
         });
           
