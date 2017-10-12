@@ -67,6 +67,8 @@ function afterConnection() {
                 console.log('Insufficient stock. There are only '+ avail + ' item(s) left.');
             }
             else {
+                sell = sell * inventory;
+                sell = sell.toFixed(2);
                 console.log('Your ' + title + ' has been placed for ' + "$" + sell)
             }
 
