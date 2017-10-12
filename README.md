@@ -10,7 +10,6 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 <br>
 
 Displaying all products and selecting a product by ID selection
-
 ![Image of products](https://github.com/Codingmamba/Bamazon/blob/master/screenshots/displayingProducts.JPG)
 
 <br>
@@ -20,5 +19,5 @@ Checks the quantity and if available, creates an order
 
 <br>
 
-If there is not enough availablle to fullfill the user order
+If there is not enough availablle to fullfill the users order
 ![Image of cancel](https://github.com/Codingmamba/Bamazon/blob/master/screenshots/notEnoughQuantity.JPG)
